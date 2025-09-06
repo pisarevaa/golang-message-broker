@@ -1,0 +1,73 @@
+definitions:
+  api.ErrorResponse:
+    properties:
+      error:
+        example: Invalid IP address
+        type: string
+    type: object
+host: localhost:7000
+info:
+  contact: {}
+  title: Swagger Message Broker API
+  version: "1.0"
+paths:
+  /v1/queues/{queue_name}/messages:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/api.ErrorResponse'
+      summary: Get message from queue
+      tags:
+      - Messages
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/api.ErrorResponse'
+      summary: Send message to queue subscribers
+      tags:
+      - Messages
+  /v1/queues/{queue_name}/subscriptions:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/api.ErrorResponse'
+      summary: Subscribe to a queue
+      tags:
+      - Subscriptions
+swagger: "2.0"
