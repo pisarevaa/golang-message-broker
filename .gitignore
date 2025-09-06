@@ -1,0 +1,10 @@
+*.db
+*.db-journal
+*.prof
+*.test
+/bin
+/dist
+/local
+.env
+.idea
+.DS_Store

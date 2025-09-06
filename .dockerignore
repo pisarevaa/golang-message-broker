@@ -1,0 +1,13 @@
+/bin
+/dist
+/tmp
+Dockerfile
+.dockerignore
+.git
+.gitignore
+.gitlab-ci.yml
+docker-compose.yml
+*.prof
+.env
+*.test
+/local
